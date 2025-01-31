@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Gallery</title>
+    <style>
+        /* Resetting default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body and background styles */
+        body {
+            background-color: #000;  /* Full black background */
+            color: #fff;  /* White text color */
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header with Name on top-left */
+        header {
+            position: fixed;
+            top: 0;
+            left: 20px;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            font-family: 'Gill Sans', sans-serif;
+        }
+
+        header a:hover {
+            color: #f00000;
+        }
+
+        /* Featured Photos Section */
+        .featured {
+            margin-top: 100px; /* Adds space for the fixed header */
+            padding: 30px 20px;
+        }
+
+        .featured-photo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .featured-photo:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .featured-photo img {
+            width: 30%;
+            height: auto;
+            border-radius: 0px;
+            /* box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); */
+            transition: transform 0.3s ease;
+        }
+
+        .featured-photo img:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-details {
+            padding: 20px;
+            max-width: 50%;
+        }
+
+        .photo-details h2 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        /* Photo details paragraph styling */
+        .photo-details p {
+            font-size: 16px;
+            line-height: 1.6;
+            font-family: 'Gill Sans', sans-serif; /* Changed to Verdana font */
+        }
+
+
+        /* View Full Gallery Button */
+        .view-gallery {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        /* View Full Gallery Button */
+        .view-gallery button {
+            background-color: #fff; /* Full white background */
+            color: #000; /* Black text */
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Added transition for color change */
+        }
+
+        /* Hover effect */
+        .view-gallery button:hover {
+            background-color: #000; /* Black background on hover */
+            color: #fff; /* White text on hover */
+            border-radius: 0; /* Ensure no rounded corners */
+        }
+
+        /* Full Gallery Section */
+        .full-gallery {
+            display: none;
+            flex-wrap: wrap;
+            gap: 170px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            width: calc(25% - 20px);
+            margin-bottom: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 0px;
+            /* box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); */
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .featured-photo {
+                flex-direction: column;
+            }
+
+            .featured-photo img {
+                width: 100%;
+            }
+
+            .photo-details {
+                max-width: 100%;
+            }
+
+            .gallery-item {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                width: 50%;
+            }
+        }
+
+        /* Horizontal Image in Gallery */
+        .horizontal-gallery-image {
+            grid-column: span 4; /* Make the image span across all columns */
+            margin: 20px 0; /* Add spacing around the horizontal image */
+            text-align: center;
+        }
+
+        .horizontal-gallery-image img {
+            width: 85%; /* Ensure the image spans the full width of the grid */
+            height: auto;
+            border-radius: 0px; /* Remove rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+            gap: 10px; /* Adjust spacing between images */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 0px; /* Optional: Adjust styling */
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">Ayush Gunjal</a>
+    </header>
+
+    <!-- Featured Photos Section -->
+    <section class="featured">
+        <div class="featured-photo">
+            <img src="IMG_8429-01.jpg" alt="Photo 1">
+            <div class="photo-details">
+                <h2>Landscapes who speaks</h2>
+                <p>Yes the picture speaks more when it has best memory tied to it same as this click. 
+                    even we dont know we are going to change the plan and went to this mountain, this landscape. 
+                    by looking at this picture i still think the memories bound to it. 
+                    This pic always told me why I think I am made to take the photos. 
+                    the sky scrapping through the mountains saying one thing that there is no such thing as simple in life. 
+                    to be happy you have to be sad. because there is no way to the happiness but the thing is happinenss is the only way </p>
+            </div>
+        </div>
+        <div class="featured-photo">
+            <img src="IMG20240706192726 (1).jpg" alt="Photo 2">
+            <div class="photo-details">
+                <h2>Alone</h2>
+                <p>The lonely car here depicts my nature of being alone each and every time in my brain. 
+                    yeah i know this is not iceland or some facinating place but looks like this. 
+                    and i think the best part of our life is being alone. 
+                    no ones bother you it was just you and your mind. 
+                    you can think implement have you thoughts put in your work. 
+                    no one will judge and went on the path where hierarchy disappear and we are only left with thing... 
+                    the passion for creation and our drive to be imagined
+                </p>
+            </div>
+        </div>
+        <div class="featured-photo">
+            <img src="IMG_20210628_083637.jpg" alt="Photo 3">
+            <div class="photo-details">
+                <h2>Heaven like mountains</h2>
+                <p>The most beautiful landscape I have ever taken.
+                    The Harihar fort of nashik.... Nashik where religion live. we use to think the peace of mind live here.
+                    having the friends who always be ready for the trek and always be ready for the hiking, adventure thats the true gem</p>
+            </div>
+        </div>  
+    </section>
+
+    <!-- View Full Gallery Button -->
+    <div class="view-gallery">
+        <button onclick="showGallery()">View Full Gallery</button>
+    </div>
+    <!-- Full Gallery Section -->
+    <section class="full-gallery" id="fullGallery">
+        <div class="gallery-item"><img src="IMG_20210628_083637.jpg" alt="Gallery Photo 1"></div>
+        <div class="gallery-item"><img src="IMG_20210628_084056.jpg" alt="Gallery Photo 2"></div>
+        <div class="gallery-item"><img src="IMG_20210628_083940.jpg" alt="Gallery Photo 3"></div> 
+
+        <!-- Add Horizontal Image -->
+        <div class="horizontal-gallery-image">
+            <img src="IMG20241213090137 (1).jpg" alt="Horizontal Image">
+        </div>
+
+        <div class="gallery-item"><img src="IMG_8429-01.jpg" alt="Gallery Photo 4"></div>
+        <div class="gallery-item"><img src="IMG20240706192726 (1).jpg" alt="Gallery Photo 5"></div>
+        <div class="gallery-item"><img src="IMG_20210628_083637.jpg" alt="Gallery Photo 6"></div>
+
+        <!-- Add Horizontal Image -->
+        <div class="horizontal-gallery-image">
+            <img src="IMG20240706192819 (1).jpg" alt="Horizontal Image">
+        </div>
+
+        <div class="gallery-item"><img src="IMG_20240927_15465333.jpg" alt="Gallery Photo 7"></div>
+        <div class="gallery-item"><img src="IMG_20240927_15470765.jpg" alt="Gallery Photo 8"></div>
+        <div class="gallery-item"><img src="IMG_20240927_15455649.jpg" alt="Gallery Photo 9"></div>
+
+        <!-- Add Horizontal Image -->
+        <div class="horizontal-gallery-image">
+            <img src="ganga.jpg" alt="Horizontal Image">
+        </div>
+
+        <div class="gallery-item"><img src="IMG20240105083623.jpg" alt="Gallery Photo 8"></div>
+        <div class="gallery-item"><img src="IMG20231115152939_01.jpg" alt="Gallery Photo 8"></div>
+        <div class="gallery-item"><img src="IMG20240105083609.jpg" alt="Gallery Photo 9"></div>
+
+        <!-- Add Horizontal Image -->
+        <div class="horizontal-gallery-image">
+            <img src="IMG20240706173256.jpg" alt="Horizontal Image">
+        </div>
+        
+        
+        <div class="gallery-item"><img src="IMG20240706190722 (1).jpg" alt="Gallery Photo 7"></div>
+        <div class="gallery-item"><img src="IMG20240706191008.jpg" alt="Gallery Photo 8"></div>
+        <div class="gallery-item"><img src="IMG20240706190435 (1) (1) (1).jpg" alt="Gallery Photo 9"></div>
+
+        <div class="gallery-item"><img src="IMG20240629211000 (1).jpg" alt="Gallery Photo 7"></div>
+        <div class="gallery-item"><img src="IMG20240629215147.jpg" alt="Gallery Photo 8"></div>
+        <div class="gallery-item"><img src="IMG20240629210920.jpg" alt="Gallery Photo 9"></div>
+        
+        <div class="gallery-item"><img src="IMG_1775.jpg" alt="Gallery Photo 7"></div>
+        <div class="gallery-item"><img src="IMG_9365.jpg" alt="Gallery Photo 8"></div>
+        <div class="gallery-item"><img src="IMG_9743.jpg" alt="Gallery Photo 9"></div>
+
+    </section>
+
+
+    <script>
+        function showGallery() {
+            const fullGallery = document.getElementById('fullGallery');
+            fullGallery.style.display = 'flex';
+            window.scrollTo({ top: fullGallery.offsetTop, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
