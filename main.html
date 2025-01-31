@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Gunjal | Portfolio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        header {
+            background: url('DSC00609.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #b1adad;
+            position: relative;
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        header div {
+            position: relative;
+            z-index: 1;
+        }
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin: 10px 0 20px;
+        }
+        header a {
+            display: inline-block;
+            background-color: #000000;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            color: #fff;
+            padding: 20px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 500;
+            /* background-color: #000; Ensure the nav has a background for visibility */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-family: 'Roboto', sans-serif;
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            font-size: 1rem;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        #about, #data-analytics, #photography, #blogs, #contact {
+            padding: 300px 30px;
+            max-width: 1500px;
+            margin: auto;
+            background: center/cover no-repeat;
+            color: #120606;
+        }
+
+        /* About Section */
+        #about {
+            background: url('DSC07183.jpg') center/cover no-repeat;
+        }
+
+        /* Data Analytics Section */
+        #data-analytics {
+            background: url('pexels-shotbyrain-3934623.jpg') center/cover no-repeat;
+            color: rgb(192, 188, 188);
+        }
+
+        /* Photography Section */
+        #photography {
+            background: url('IMG_8429-01.jpg') center/cover no-repeat;
+            color: rgb(9, 7, 7);
+        }
+
+        /* Blogs Section */
+        #blogs {
+            background: url('DSC07213.jpg') center/cover no-repeat;
+            color: #000000;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            font-family: 'Calibri', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        a {
+            display: inline-block;
+            background-color: #000000;
+            color: #fff;
+            text-decoration: wavy;
+            padding: 10px 20px;
+            border-radius: 0%;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        form input, form textarea, form button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            font-size: 1rem;
+        }
+        form button {
+            background-color: #131313;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form input, form textarea, form button {
+            margin: 10px 0;
+            padding: 5px;
+            width: 50%;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 0%;
+        }
+
+        form textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        form button {
+            background-color: #383434;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #333;
+        }
+
+        /* Style the email button specifically */
+        .email-button {
+            font-size: 0.9rem;
+            text-decoration: none;
+            background: none;
+            color: #333;
+            border: none;
+            padding: 0;
+            margin: 10px 0;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .email-button:hover {
+            color: #ff6200;
+            text-decoration: underline;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #333;
+            margin: 8px 0;
+            font-family: 'Calibri', sans-serif;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .contact-info a.info-link {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: white;
+            color: #000;
+            font-weight: 500;
+            text-decoration: none;
+            border: 2px solid #000;
+            font-family: 'Calibri', sans-serif;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .contact-info a.info-link:hover {
+            background-color: #000;
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #ff6200;
+            color: white;
+        }
+
+        .photography a {
+            text-decoration: none;  /* Removes the underline */
+            color: inherit;         /* Makes the link color the same as the surrounding text */
+            font-weight: normal;    /* Removes bold text styling */
+            cursor: pointer;       /* Makes the cursor appear as a pointer when hovering */
+        }
+ 
+        .photography a:hover {
+            text-decoration: underline;  /* Optionally, you can underline the link on hover to show it's clickable */
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div>Ayush Gunjal</div>
+        <div>
+            <a href="#about">About</a>
+            <a href="Data_analytics.html">Data Analytics</a>
+            <a href="gallery.html">Photography</a>
+            <a href="Blog.html">Blogs</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header>
+        <div>
+            <h1>Ayush Gunjal</h1>
+            <p>Explore my work in Data Analytics, Photography, and more</p>
+            <a href="#about">About Me</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a Data Analyst and Photographer passionate about solving real-world problems using data and creativity.</p>
+    </section>
+
+    <section id="data-analytics">
+        <h2><a href="Data_analytics.html">Data Analytics</a></h2>
+        <p>Data is my passion! I love analyzing and visualizing data to uncover insights and tell stories.</p>
+    </section>
+
+    <section id="photography">
+        <h2><a href="gallery.html">Photography</a></h2>
+        <p>Photography allows me to capture the world in unique ways. I specialize in creative and cinematic photography.</p>
+    </section>
+
+    <section id="blogs">
+        <h2><a href="Blog.html">Blogs</a></h2>
+        <p>Check out my thoughts and experiences on various topics through my blog.</p>
+    </section>
+
+    <section id="contact">
+        <div class="contact-info">
+            <h2>Contact Me</h2>
+            <p>If you have any questions or want to work together, feel free to reach out!</p>
+            <a href="ayush@gmail.com" class="email-button">Email Me</a>
+            <p>Phone: 7447547494</p>
+            <a href="tel:+1234567890" class="info-link">Call Me</a>
+        </div>
+        
+        <form action="#">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Ayush Gunjal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
