@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ayush Gunjal's Portfolio</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Global Styles */
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            margin-right: 20px;
+        }
+
+        header nav ul li a {
+            color: #f00;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .hero {
+            background-color: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+        }
+
+        section {
+            padding: 50px;
+        }
+
+        /* Tab Style */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .tabs h2 {
+            margin-bottom: 20px;
+        }
+
+        .tab-link {
+            background-color: #8B0000; /* Dark red */
+            color: black; /* Black text */
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .tab-link:hover {
+            background-color: black; /* Black background on hover */
+            color: white; /* White text on hover */
+        }
+
+        .tab-link.active {
+            background-color: black; /* Black background for active tab */
+            color: white; /* White text for active tab */
+        }
+
+        .tab-content {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #333;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .project-info {
+            padding: 10px;
+        }
+
+        .project-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .project-links a {
+            color: #f00;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skill-card {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill-card i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #f00;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .contact-section label {
+            margin-bottom: 5px;
+        }
+
+        .contact-section input,
+        .contact-section textarea {
+            background-color: black;
+            color: white;
+            border: 1px solid #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .contact-section button {
+            background-color: #8B0000;
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        .contact-section button:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        // JavaScript for Tab functionality
+        function openTab(evt, tabName) {
+            var i, tabContent, tabLinks;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            tabLinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "flex";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Ayush Gunjal</h1>
+            <p>Data Analyst | Excel Expert | Python Developer | BI Enthusiast</p>
+        </div>
+    </section>
+
+    <!-- Project Showcase -->
+    <section id="projects" class="data-analytics-section">
+        <div class="tabs">
+            <h2>Featured Projects</h2>
+            <div>
+                <button class="tab-link" onclick="openTab(event, 'excel')">Excel Projects</button>
+                <button class="tab-link" onclick="openTab(event, 'powerbi')">Power BI Projects</button>
+                <button class="tab-link" onclick="openTab(event, 'tableau')">Tableau Projects</button>
+                <button class="tab-link" onclick="openTab(event, 'mysql')">MySQL Projects</button>
+                <button class="tab-link" onclick="openTab(event, 'python')">Python Projects</button>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="excel" class="tab-content">
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="excel_personal_finance.jpg" alt="Excel Project 1" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Personal Finance Dashboard</h3>
+                        <p class="project-description">Dashboard in Excel for sales analysis with slicers.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ayush5474/Personal-Finance-Dashboard-using-MS-excel" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="Excel_supermarket_sales.jpg" alt="Excel Project 2" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Excel_supermarket sales Dashboard</h3>
+                        <p class="project-description">Track personal finances with a budget and spending dashboard.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ayush5474/supermarket-sales-Dashboard-using-MS-excel" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="Excel_bike_sales.jpg" alt="Excel Project 3" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Bike Sales Dashboard</h3>
+                        <p class="project-description">Analyze employee performance with an interactive dashboard in Excel.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ayush5474/Bike-Sales-dashboard-using-Excel" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="powerbi" class="tab-content">
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="1st.jpg" alt="Sales Dashboard" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Sales Dashboard (Power BI)</h3>
+                        <p class="project-description">Interactive dashboard showing sales trends and KPIs.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ayush5474/sales-dashboard-using-power-bi" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="dashboard 1.jpg" alt="Power BI Project 2" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Formula 1 Racing Dashboard</h3>
+                        <p class="project-description">Analysis of product sales and performance in Power BI.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ayush5474/formula-1-dashboard-using-power-bi" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tableau" class="tab-content">
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="CCS_tableau.jpg" alt="Tableau Project" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Carbon Capture & Storage Dashboard</h3>
+                        <p class="project-description">Tableau dashboard tracking global CCS projects and data.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ayush5474/Carbon-Captured-and-Storage-CCS-dashboard-using-Tableau" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mysql" class="tab-content">
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="SQL_Project.png" alt="MySQL Project" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Art Gallery Competition Management</h3>
+                        <p class="project-description">MySQL-based project for managing art gallery competitions.</p>
+                        <div class="project-links">
+                            <a href="https://lnkd.in/g5_rdegv" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="python" class="tab-content">
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="Python-logo.png" alt="Python Project 1" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Hypothesis Testing With Python t-test</h3>
+                        <p class="project-description">Scraped product data from Snapdeal using Python.</p>
+                        <div class="project-links">
+                            <a href="https://lnkd.in/diwBFjZx" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="Python-logo.png" alt="Python Project 2" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Wikipedia Web scrapping</h3>
+                        <p class="project-description">Python project analyzing F1 race results over the years.</p>
+                        <div class="project-links">
+                            <a href="https://lnkd.in/dRPWABTJ" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="Python-logo.png" alt="Python Project 3" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Snapdeal Web scrapping</h3>
+                        <p class="project-description">Analyzing crime data using Python for various patterns.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Ayush5474/Snapdeal-web-scrapping-project-using-python" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="Python-logo.png" alt="Python Project 4" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Hypothesis Testing <Z-test></Z-test></h3>
+                        <p class="project-description">Predicting EV charging demand using machine learning in Python.</p>
+                        <div class="project-links">
+                            <a href="https://lnkd.in/dNVrAKFC" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/ayush-gunjal-955745237" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-file-excel"></i>
+                <h3>Excel</h3>
+                <p>Advanced data analysis, pivot tables, and dashboard creation.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Power BI</h3>
+                <p>Interactive dashboards, data modeling, and DAX formulas.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <p>Data scraping, automation, and machine learning.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>MySQL</h3>
+                <p>Database design, queries, and optimization.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Tableau</h3>
+                <p>Data visualization and interactive dashboards.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JavaScript, and responsive design.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>An Artist - A Creative Journey</title>
+  <style>
+    html {
+            scroll-behavior: smooth;
+    }
+
+    /* General Styles */
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* Black background */
+      color: #fff; /* White text */
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: #ff0000; /* Red headings */
+    }
+
+    a {
+      color: #ff0000; /* Red links */
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #cc0000; /* Darker red on hover */
+    }
+
+    /* Header */
+    header {
+      background: #000; /* Black header */
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 2px solid #ff0000; /* Red border */
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #ff0000; /* Red tagline */
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-size: 1rem;
+      color: #fff; /* White navigation links */
+    }
+
+    nav a:hover {
+      color: #ff0000; /* Red on hover */
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://via.placeholder.com/1200x600/000/ff0000') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #ff0000; /* Red heading */
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .hero button {
+      background: #ff0000; /* Red button */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #cc0000; /* Darker red on hover */
+    }
+
+    /* Blog Section */
+    .blog {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .blog img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .blog p {
+      font-size: 1.1rem;
+      text-align: justify;
+    }
+
+    .image-left {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .image-right {
+      float: right;
+      margin-left: 20px;
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    /* Upcoming Blogs Section */
+    .upcoming {
+      background: #1a1a1a; /* Dark gray background */
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .upcoming h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .upcoming p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .upcoming form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .upcoming input[type="email"] {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #ff0000; /* Red border */
+      border-radius: 5px;
+      margin-right: 10px;
+      background: #000; /* Black input background */
+      color: #fff; /* White text */
+    }
+
+    .upcoming button {
+      background: #ff0000; /* Red button */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .upcoming button:hover {
+      background: #cc0000; /* Darker red on hover */
+    }
+
+    /* About Section */
+    .about {
+      padding: 40px 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .about img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 2px solid #ff0000; /* Red border */
+    }
+
+    .about p {
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #000; /* Black footer */
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      border-top: 2px solid #ff0000; /* Red border */
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer a {
+      color: #ff0000; /* Red links */
+    }
+
+    footer a:hover {
+      color: #cc0000; /* Darker red on hover */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .blog img {
+        float: none;
+        display: block;
+        margin: 10px auto;
+      }
+
+      .blog p {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>An Artist</h1>
+    <p>Exploring the Journey of Creativity</p>
+    <nav>
+      <a href="#blog">Blog</a>
+      <a href="#about">About</a>
+      <!-- <a href="#contact">Contact</a> -->
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <h2>Welcome to My Creative Space</h2>
+      <p>Join me as I share my thoughts, experiences, and upcoming projects.</p>
+      <a href="#blog"><button>Read My First Blog</button></a>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="blog">
+    <!-- First Paragraph with Image on Left -->
+    <img src="IMG_20210628_083637.jpg" alt="Your Photo" class="image-left">
+    <p>
+      What’s the first thing that comes to your mind when you hear the word “Artist”? Is it an art form or someone making a drawing or portrait of someone, the carpenter doing something out of his skills and someone playing the nice and sweet piano? When I heard the sound “Artist” the first thing that came into my mind was someone pressing that shutter button on the SLR and snapping out the frames of the epic landscapes and having a good smile on a face and the satisfaction of getting the perfect shot.
+    </p>
+    <p>
+      But after all, what matters in our life is our life itself which eventually depends on what are you today and thinking about what we would become one day.
+    </p>
+    <div class="clear"></div>
+
+    <!-- Third Paragraph (Introduction) with Image on Right -->
+    <img src="IMG_9742.jpg" alt="Your Photo" class="image-right">
+    <p>
+      Hello there, I am Ayush Gunjal, and I have been a data enthusiast for my LinkedIn career and a photographer and cinematographer for my life and done engineering with a specialization in electronics and telecommunication.
+    </p>
+    <div class="clear"></div>
+
+    <!-- Rest of the Blog -->
+    <p>
+      We all know the story that always came into our mind and surroundings and very common that, there is a guy who was just born into the middle class or a poor family and wants to become an artist, and our society comes in between and doesn’t let them come up and then an artist finishes very badly in their life at some point and after some time they spend their life, they eventually realize that it's not going to work this way and thereafter he switch his job and took a risk and fight with the society and finally became what he wants to be in real life. The story ends with a nice and sweet ending, a happy ending.
+    </p>
+    <p>
+      Practically everyone has their responsibility for their family so you need to manage your responsibility along with your passion. Basically what I am trying to say is your primary concern should be your family and responsibilities. If you're doing some graduation or you're doing the job for an income source that helps your family, that is great. You just need to have patience inside you that you can do your artwork whenever you have an income source that is fully yours not someone else’s or your father's money I’ll say. Well, you say it or not art needs money to be created at some point not all art is created without money. Every step we have taken would affect the financial condition of our family and their mental health.
+    </p>
+    <p>
+      So where do we should enjoy our life? You have to enjoy every stage of your life and every moment it's not written that you will always get what you want in your life sacrifices should be made. so while doing the job you should have to do your art by taking leaves or on weekends or whenever you have time. Now people will say they getting crushed every day at the end of their job then my friend this artwork is not for you. Art is something that an artist doesn’t get tired of. We heard a lot of motivational stories, motivational stories everyone did the hard work at some point in their life. Hard work is not scrolling reels at night before sleep and getting up late in the morning, hard work is something in which you couldn’t even sleep we have not reached that level of hard work. As soon as you hit the bed you fall asleep, this is hard work. Sleep is optional in that case.
+    </p>
+    <p>
+      So you should do your job and along with that you can make art or do what you love there is no one to stop us because at this point we invested our own money to create the art we want and who knows at some point in your life your artwork becomes your primary income source. Just enjoy what you love by having patience and responsibility alongside. Don’t just spend life thinking about I don’t want to do this job or something. be happy with what you have and then do what you love. So basically you have to balance both art and responsibility together and balancing this thing is itself an art.
+    </p>
+
+    <!-- Last Two Paragraphs with Image on Right -->
+    <img src="DSC00609.jpg" alt="Your Photo" class="image-right">
+    <p>
+      If you're still reading thank you for making it so far I am also an artist doing photography and cinematography learning something new every day and getting my education alongside. I am writing this article to express my feelings towards the artistic mind and it was my first article hope you love it thanks for being here At the end let me tell you what I think the artist is,
+    </p>
+    <p>
+      When you tell someone you are an artist or want to be an artist it's usually met with an eye roll a common cliché of not being able to pay the bills or make something that people will care about. What do you have to say, to share, to express, to imagine that’s not art, stick to something practical stick to something safe but that is not who we are so who are we let me tell you who we are, What’s the first thing that comes to your mind when you hear the word “Artist”. Is it an art form or someone making a drawing or portrait of someone, the carpenter doing something out of his skills and someone playing the nice and sweet piano? When I heard the sound “Artist” the first thing that came into my mind was someone pressing that shutter button on the SLR and snapping out the frames of the epic landscapes and having a good smile on a face and the satisfaction of getting the perfect shot. Exactly what you read when you decided to read this article
+    </p>
+    <div class="clear"></div>
+  </section>
+
+  <!-- Upcoming Blogs Section -->
+  <section class="upcoming">
+    <h2>Coming Soon</h2>
+    <p>Stay tuned for more stories and insights into the world of art and creativity. The next chapter is on its way!</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <img src="DSC07009.jpg" alt="Your Photo">
+    <p>Hi, I’m Ayush Gunjal, an artist and storyteller. This blog is my way of connecting with others who understand the beauty and challenges of the creative process.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Follow me on <a href="https://www.instagram.com/_ayush_gunjal_?igsh=czh5emI2a3MzemM3">Instagram</a> | <a href="#">Twitter</a></p>
+    <p>© 2023 An Artist. All rights reserved.</p>
+  </footer>
+</body>
+</html>
