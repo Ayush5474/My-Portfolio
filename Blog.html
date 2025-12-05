@@ -1,339 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>An Artist - A Creative Journey</title>
-  <style>
-    html {
-            scroll-behavior: smooth;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Library | Ayush Gunjal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    /* General Styles */
-    body {
-      font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 0;
-      background-color: #000; /* Black background */
-      color: #fff; /* White text */
-      line-height: 1.6;
-    }
+    <style>
+        :root {
+            --primary: #ff6200;
+            --dark: #121212;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+        body { margin: 0; font-family: 'Open Sans', sans-serif; background: var(--dark); color: #ddd; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; color: white; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      color: #ff0000; /* Red headings */
-    }
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.9); z-index: 1000; border-bottom: 1px solid var(--border); box-sizing: border-box; }
+        .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 2px; } .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a:hover { color: var(--primary); }
 
-    a {
-      color: #ff0000; /* Red links */
-      text-decoration: none;
-    }
+        /* HEADER */
+        .library-header { height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(to bottom, #000, #1a1a1a); padding-top: 60px; }
+        .library-header h1 { font-size: 3rem; }
+        .library-header p { color: var(--primary); font-style: italic; }
 
-    a:hover {
-      color: #cc0000; /* Darker red on hover */
-    }
+        /* GRID SYSTEM */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-    /* Header */
-    header {
-      background: #000; /* Black header */
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-      border-bottom: 2px solid #ff0000; /* Red border */
-    }
+        /* CARD STYLE */
+        .blog-card {
+            background: #1a1a1a;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-color: var(--primary); }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+        .card-img { height: 250px; width: 100%; object-fit: cover; }
+        .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-date { font-size: 0.8rem; color: #666; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .card-title { font-size: 1.5rem; margin-bottom: 15px; }
+        .card-desc { font-size: 1rem; color: #aaa; margin-bottom: 25px; line-height: 1.6; flex-grow: 1; }
+        
+        .read-btn { 
+            color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; 
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+        .read-btn:hover { gap: 10px; }
 
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #ff0000; /* Red tagline */
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      margin: 0 15px;
-      font-size: 1rem;
-      color: #fff; /* White navigation links */
-    }
-
-    nav a:hover {
-      color: #ff0000; /* Red on hover */
-    }
-
-    /* Hero Section */
-    .hero {
-      background: url('https://via.placeholder.com/1200x600/000/ff0000') no-repeat center center/cover;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin: 0;
-      color: #ff0000; /* Red heading */
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin: 10px 0;
-    }
-
-    .hero button {
-      background: #ff0000; /* Red button */
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .hero button:hover {
-      background: #cc0000; /* Darker red on hover */
-    }
-
-    /* Blog Section */
-    .blog {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .blog img {
-      max-width: 300px;
-      height: auto;
-      border-radius: 10px;
-      margin: 10px;
-    }
-
-    .blog p {
-      font-size: 1.1rem;
-      text-align: justify;
-    }
-
-    .image-left {
-      float: left;
-      margin-right: 20px;
-    }
-
-    .image-right {
-      float: right;
-      margin-left: 20px;
-    }
-
-    .clear {
-      clear: both;
-    }
-
-    /* Upcoming Blogs Section */
-    .upcoming {
-      background: #1a1a1a; /* Dark gray background */
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .upcoming h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .upcoming p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-
-    .upcoming form {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .upcoming input[type="email"] {
-      padding: 10px;
-      width: 250px;
-      border: 1px solid #ff0000; /* Red border */
-      border-radius: 5px;
-      margin-right: 10px;
-      background: #000; /* Black input background */
-      color: #fff; /* White text */
-    }
-
-    .upcoming button {
-      background: #ff0000; /* Red button */
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .upcoming button:hover {
-      background: #cc0000; /* Darker red on hover */
-    }
-
-    /* About Section */
-    .about {
-      padding: 40px 40px;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .about h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-
-    .about img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      border: 2px solid #ff0000; /* Red border */
-    }
-
-    .about p {
-      font-size: 1.1rem;
-    }
-
-    /* Footer */
-    footer {
-      background: #000; /* Black footer */
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
-      border-top: 2px solid #ff0000; /* Red border */
-    }
-
-    footer p {
-      margin: 5px 0;
-    }
-
-    footer a {
-      color: #ff0000; /* Red links */
-    }
-
-    footer a:hover {
-      color: #cc0000; /* Darker red on hover */
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .blog img {
-        float: none;
-        display: block;
-        margin: 10px auto;
-      }
-
-      .blog p {
-        text-align: left;
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Add menu toggle logic from previous files if needed */
+            .library-header h1 { font-size: 2rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <h1>An Artist</h1>
-    <p>Exploring the Journey of Creativity</p>
+
     <nav>
-      <a href="#blog">Blog</a>
-      <a href="#about">About</a>
-      <!-- <a href="#contact">Contact</a> -->
+        <a href="index.html" class="logo">AYUSH<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Data_analytics.html">Data</a></li>
+            <li><a href="gallery.html">Photography</a></li>
+            <li><a href="Blog.html" style="color:var(--primary);">Blogs</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div>
-      <h2>Welcome to My Creative Space</h2>
-      <p>Join me as I share my thoughts, experiences, and upcoming projects.</p>
-      <a href="#blog"><button>Read My First Blog</button></a>
+    <header class="library-header">
+        <h1>Reflections</h1>
+        <p>Stories of Art, Struggle, and Life</p>
+    </header>
+
+    <div class="blog-grid">
+        
+        <article class="blog-card">
+            <img src="IMG20240706192726 (1).jpg" alt="City Life" class="card-img">
+            <div class="card-content">
+                <span class="card-date">Latest Post</span>
+                <h2 class="card-title">The Cost of Leaving Home</h2>
+                <p class="card-desc">Moving to a new city isn't just about geography. It's about what you leave behind and the struggle to find yourself in the noise of survival.</p>
+                <a href="blog-leaving-home.html" class="read-btn">Read Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="IMG_20210628_083637.jpg" alt="Camera" class="card-img">
+            <div class="card-content">
+                <span class="card-date">The Beginning</span>
+                <h2 class="card-title">An Artist</h2>
+                <p class="card-desc">What does it truly mean to be an artist? Exploring the balance between creative passion and the responsibilities of life.</p>
+                <a href="blog-artist.html" class="read-btn">Read Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+
     </div>
-  </section>
 
-  <!-- Blog Section -->
-  <section id="blog" class="blog">
-    <!-- First Paragraph with Image on Left -->
-    <img src="IMG_20210628_083637.jpg" alt="Your Photo" class="image-left">
-    <p>
-      What’s the first thing that comes to your mind when you hear the word “Artist”? Is it an art form or someone making a drawing or portrait of someone, the carpenter doing something out of his skills and someone playing the nice and sweet piano? When I heard the sound “Artist” the first thing that came into my mind was someone pressing that shutter button on the SLR and snapping out the frames of the epic landscapes and having a good smile on a face and the satisfaction of getting the perfect shot.
-    </p>
-    <p>
-      But after all, what matters in our life is our life itself which eventually depends on what are you today and thinking about what we would become one day.
-    </p>
-    <div class="clear"></div>
-
-    <!-- Third Paragraph (Introduction) with Image on Right -->
-    <img src="IMG_9742.jpg" alt="Your Photo" class="image-right">
-    <p>
-      Hello there, I am Ayush Gunjal, and I have been a data enthusiast for my LinkedIn career and a photographer and cinematographer for my life and done engineering with a specialization in electronics and telecommunication.
-    </p>
-    <div class="clear"></div>
-
-    <!-- Rest of the Blog -->
-    <p>
-      We all know the story that always came into our mind and surroundings and very common that, there is a guy who was just born into the middle class or a poor family and wants to become an artist, and our society comes in between and doesn’t let them come up and then an artist finishes very badly in their life at some point and after some time they spend their life, they eventually realize that it's not going to work this way and thereafter he switch his job and took a risk and fight with the society and finally became what he wants to be in real life. The story ends with a nice and sweet ending, a happy ending.
-    </p>
-    <p>
-      Practically everyone has their responsibility for their family so you need to manage your responsibility along with your passion. Basically what I am trying to say is your primary concern should be your family and responsibilities. If you're doing some graduation or you're doing the job for an income source that helps your family, that is great. You just need to have patience inside you that you can do your artwork whenever you have an income source that is fully yours not someone else’s or your father's money I’ll say. Well, you say it or not art needs money to be created at some point not all art is created without money. Every step we have taken would affect the financial condition of our family and their mental health.
-    </p>
-    <p>
-      So where do we should enjoy our life? You have to enjoy every stage of your life and every moment it's not written that you will always get what you want in your life sacrifices should be made. so while doing the job you should have to do your art by taking leaves or on weekends or whenever you have time. Now people will say they getting crushed every day at the end of their job then my friend this artwork is not for you. Art is something that an artist doesn’t get tired of. We heard a lot of motivational stories, motivational stories everyone did the hard work at some point in their life. Hard work is not scrolling reels at night before sleep and getting up late in the morning, hard work is something in which you couldn’t even sleep we have not reached that level of hard work. As soon as you hit the bed you fall asleep, this is hard work. Sleep is optional in that case.
-    </p>
-    <p>
-      So you should do your job and along with that you can make art or do what you love there is no one to stop us because at this point we invested our own money to create the art we want and who knows at some point in your life your artwork becomes your primary income source. Just enjoy what you love by having patience and responsibility alongside. Don’t just spend life thinking about I don’t want to do this job or something. be happy with what you have and then do what you love. So basically you have to balance both art and responsibility together and balancing this thing is itself an art.
-    </p>
-
-    <!-- Last Two Paragraphs with Image on Right -->
-    <img src="DSC00609.jpg" alt="Your Photo" class="image-right">
-    <p>
-      If you're still reading thank you for making it so far I am also an artist doing photography and cinematography learning something new every day and getting my education alongside. I am writing this article to express my feelings towards the artistic mind and it was my first article hope you love it thanks for being here At the end let me tell you what I think the artist is,
-    </p>
-    <p>
-      When you tell someone you are an artist or want to be an artist it's usually met with an eye roll a common cliché of not being able to pay the bills or make something that people will care about. What do you have to say, to share, to express, to imagine that’s not art, stick to something practical stick to something safe but that is not who we are so who are we let me tell you who we are, What’s the first thing that comes to your mind when you hear the word “Artist”. Is it an art form or someone making a drawing or portrait of someone, the carpenter doing something out of his skills and someone playing the nice and sweet piano? When I heard the sound “Artist” the first thing that came into my mind was someone pressing that shutter button on the SLR and snapping out the frames of the epic landscapes and having a good smile on a face and the satisfaction of getting the perfect shot. Exactly what you read when you decided to read this article
-    </p>
-    <p>
-      An artist isn’t bound by the restriction of the society Artist doesn’t see the world in a straight line. Artists can find comfort in the unknown. The place where we can express our inner feelings through our work a limitless expression of freedom. Some use cards, some use notes, some use endurance, some use precision but we are all ultimately arriving at the same place. The place where titles and hierarchies disappear and we are only left with what we love our passion for creating, and our drive to be imagined.
-Thank you…
-    </p>
-    <div class="clear"></div>
-  </section>
-
-  <!-- Upcoming Blogs Section -->
-  <section class="upcoming">
-    <h2>Coming Soon</h2>
-    <p>Stay tuned for more stories and insights into the world of art and creativity. The next chapter is on its way!</p>
-    <form>
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <img src="DSC07009.jpg" alt="Your Photo">
-    <p>Hi, I’m Ayush Gunjal, an artist and storyteller. This blog is my way of connecting with others who understand the beauty and challenges of the creative process.</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>Follow me on <a href="https://www.instagram.com/_ayush_gunjal_?igsh=czh5emI2a3MzemM3">Instagram</a> | <a href="#">Twitter</a></p>
-    <p>© 2023 An Artist. All rights reserved.</p>
-  </footer>
 </body>
 </html>
