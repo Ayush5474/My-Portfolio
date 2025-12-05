@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Artist | Ayush Gunjal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- SHARED STYLES --- */
+        :root { --primary: #ff6200; --dark: #121212; --text: #dcdcdc; }
+        body { font-family: 'Open Sans', sans-serif; background: var(--dark); color: var(--text); line-height: 1.8; margin: 0; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: white; }
+        
+        /* Nav */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); z-index: 1000; box-sizing: border-box;}
+        .logo { font-size: 1.5rem; font-weight: 900; color: white; text-decoration: none; } .logo span { color: var(--primary); }
+        .back-btn { color: #ccc; text-decoration: none; font-weight: 600; font-size: 0.9rem; } .back-btn:hover { color: var(--primary); }
 
+        /* Header */
+        .article-header {
+            height: 60vh;
+            /* Using your landscape shot for the header */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('DSC00609.jpg') center/cover fixed no-repeat;
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 0 5% 80px;
+        }
+        .article-header h1 { font-size: 3.5rem; margin: 0; max-width: 800px; text-transform: uppercase; }
+        .meta { color: var(--primary); font-style: italic; margin-top: 10px; }
+
+        /* Content */
+        .content { max-width: 800px; margin: 0 auto; padding: 60px 20px; font-size: 1.15rem; }
+        p { margin-bottom: 25px; }
+        
+        /* Formatting Extras */
+        blockquote { 
+            border-left: 4px solid var(--primary); 
+            padding-left: 20px; 
+            margin: 40px 0;
+            font-style: italic; 
+            color: white; 
+            font-size: 1.2rem; 
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight-box {
+            border: 1px solid var(--primary);
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+            border-radius: 10px;
+            background: rgba(255, 98, 0, 0.05);
+        }
+
+        .inline-img-right { 
+            float: right; 
+            width: 40%; 
+            margin-left: 30px; 
+            border-radius: 5px; 
+            margin-bottom: 20px; 
+            border: 1px solid #333;
+        }
+        
+        .clearfix::after { content: ""; clear: both; display: table; }
+        
+        footer { text-align: center; padding: 50px; background: #000; border-top: 1px solid #222; font-size: 0.9rem; color: #666; }
+
+        @media (max-width: 768px) { 
+            .article-header h1 { font-size: 2.2rem; } 
+            .inline-img-right { float: none; width: 100%; margin: 0 0 20px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">AYUSH<span>.</span></a>
+        <a href="Blog.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Library</a>
+    </nav>
+
+    <header class="article-header">
+        <h1>An Artist</h1>
+        <p class="meta">By Ayush Gunjal | Balancing Passion & Reality</p>
+    </header>
+
+    <article class="content">
+        <p>What’s the first thing that comes to your mind when you hear the word “Artist”? Is it an art form or someone making a drawing or portrait of someone, the carpenter doing something out of his skills and someone playing the nice and sweet piano?</p> 
+        
+        <p>When I heard the sound “Artist” the first thing that came into my mind was someone pressing that shutter button on the SLR and snapping out the frames of the epic landscapes and having a good smile on a face and the satisfaction of getting the perfect shot.</p>
+
+        <p>But after all, what matters in our life is our life itself which eventually depends on what are you today and thinking about what we would become one day.</p>
+
+        <div class="clearfix">
+            <img src="IMG_9743.jpg" alt="Ayush" class="inline-img-right">
+            <p>Hello there, I am <strong>Ayush Gunjal</strong>, and I have been a data enthusiast for my LinkedIn career and a photographer and cinematographer for my life and done engineering with a specialization in electronics and telecommunication.</p>
+            <p>We all know the story that always came into our mind and surroundings and very common that, there is a guy who was just born into the middle class or a poor family and wants to become an artist, and our society comes in between and doesn’t let them come up.</p>
+        </div>
+
+        <p>Then an artist finishes very badly in their life at some point. But after some time they spend their life, they eventually realize that it's not going to work this way and thereafter he switch his job and took a risk and fight with the society and finally became what he wants to be in real life. The story ends with a nice and sweet ending, a happy ending.</p>
+
+        <p>Practically everyone has their responsibility for their family so you need to manage your responsibility along with your passion. Basically what I am trying to say is your primary concern should be your family and responsibilities. If you're doing some graduation or you're doing the job for an income source that helps your family, that is great. You just need to have patience inside you that you can do your artwork whenever you have an income source that is fully yours not someone else’s or your father's money I’ll say.</p>
+        
+        <p>Well, you say it or not art needs money to be created at some point not all art is created without money. Every step we have taken would affect the financial condition of our family and their mental health.</p>
+
+        <p>So where do we should enjoy our life? You have to enjoy every stage of your life and every moment it's not written that you will always get what you want in your life sacrifices should be made. So while doing the job you should have to do your art by taking leaves or on weekends or whenever you have time.</p>
+        
+        <p>Now people will say they getting crushed every day at the end of their job then my friend this artwork is not for you. Art is something that an artist doesn’t get tired of.</p>
+
+        <blockquote>
+            We heard a lot of motivational stories where everyone did the hard work. Hard work is not scrolling reels at night before sleep and getting up late in the morning. Hard work is something in which you couldn’t even sleep... As soon as you hit the bed you fall asleep, this is hard work. Sleep is optional in that case.
+        </blockquote>
+
+        <p>So you should do your job and along with that you can make art or do what you love there is no one to stop us because at this point we invested our own money to create the art we want and who knows at some point in your life your artwork becomes your primary income source.</p>
+        
+        <p>Just enjoy what you love by having patience and responsibility alongside. Don’t just spend life thinking about I don’t want to do this job or something. Be happy with what you have and then do what you love. So basically you have to balance both art and responsibility together and balancing this thing is itself an art.</p>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+        <p>If you're still reading thank you for making it so far I am also an artist doing photography and cinematography learning something new every day and getting my education alongside. I am writing this article to express my feelings towards the artistic mind and it was my first article hope you love it thanks for being here.</p>
+
+        <p>At the end let me tell you what I think the artist is...</p>
+
+        <p>When you tell someone you are an artist or want to be an artist it's usually met with an eye roll a common cliché of not being able to pay the bills or make something that people will care about. What do you have to say, to share, to express, to imagine that’s not art, stick to something practical stick to something safe but that is not who we are.</p>
+        
+        <div class="highlight-box">
+            <h3 style="color:var(--primary); margin-bottom: 20px;">Who are we?</h3>
+            <p>An artist isn’t bound by the restriction of the society. Artist doesn’t see the world in a straight line. Artists can find comfort in the unknown. The place where we can express our inner feelings through our work a limitless expression of freedom.</p>
+            <p style="font-weight: bold; color: white;">"Some use cards, some use notes, some use endurance, some use precision but we are all ultimately arriving at the same place. The place where titles and hierarchies disappear and we are only left with what we love our passion for creating, and our drive to be imagined."</p>
+        </div>
+
+        <p style="text-align: center; margin-top: 30px;">Thank you.</p>
+    </article>
+
+    <footer>
+        <p>&copy; 2025 Ayush Gunjal. <a href="Blog.html" style="color:white;">Back to Library.</a></p>
+    </footer>
+
+</body>
+</html>
