@@ -4,357 +4,379 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayush Gunjal | Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        html {
-            scroll-behavior: smooth;
+        /* --- VARIABLES --- */
+        :root {
+            --primary: #ff6200;
+            --dark: #121212;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
+
+        html { scroll-behavior: smooth; }
+
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-            background-color: #f8f8f8;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden; /* Prevents horizontal scroll on mobile */
         }
-        header {
-            background: url('DSC00609.jpg') center/cover no-repeat;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #b1adad;
-            position: relative;
-        }
-        header::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        header div {
-            position: relative;
-            z-index: 1;
-        }
-        header h1 {
-            font-size: 4rem;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.5rem;
-            margin: 10px 0 20px;
-        }
-        header a {
-            display: inline-block;
-            background-color: #000000;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1.2rem;
-        }
+
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; margin: 0; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* --- NAVIGATION --- */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            color: #fff;
-            padding: 20px 5px;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 500;
-            /* background-color: #000; Ensure the nav has a background for visibility */
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-sizing: border-box;
+            border-bottom: 1px solid var(--glass-border);
         }
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-family: 'Roboto', sans-serif;
-            display: inline;
-            padding: 0;
-            background-color: transparent;
-            border: none;
-            font-size: 1rem;
-        }
+        .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 2px; color: var(--light); }
+        .logo span { color: var(--primary); }
 
-        section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: auto;
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 0.9rem; font-weight: 600; color: #ccc; position: relative; }
+        
+        /* Hover Underline Animation */
+        .nav-links a::after {
+            content: ''; width: 0; height: 2px; background: var(--primary);
+            position: absolute; bottom: -5px; left: 0; transition: 0.3s;
         }
-        #about, #data-analytics, #photography, #blogs, #contact {
-            padding: 300px 30px;
-            max-width: 1500px;
-            margin: auto;
-            background: center/cover no-repeat;
-            color: #120606;
-        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--primary); }
 
-        /* About Section */
-        #about {
-            background: url('DSC07183.jpg') center/cover no-repeat;
-        }
+        /* Mobile Menu Button (Hidden on Desktop) */
+        .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--light); }
 
-        /* Data Analytics Section */
-        #data-analytics {
-            background: url('pexels-shotbyrain-3934623.jpg') center/cover no-repeat;
-            color: rgb(192, 188, 188);
-        }
-
-        /* Photography Section */
-        #photography {
-            background: url('IMG_8429-01.jpg') center/cover no-repeat;
-            color: rgb(9, 7, 7);
-        }
-
-        /* Blogs Section */
-        #blogs {
-            background: url('DSC07213.jpg') center/cover no-repeat;
-            color: #000000;
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: #ffffff;
-            color: #000000;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            font-family: 'Calibri', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* --- HERO SECTION --- */
+        header {
             height: 100vh;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
-        a {
-            display: inline-block;
-            background-color: #000000;
-            color: #fff;
-            text-decoration: wavy;
-            padding: 10px 20px;
-            border-radius: 0%;
-            font-size: 1.2rem;
-            margin-top: 20px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        form input, form textarea, form button {
-            margin: 10px 0;
-            padding: 10px;
-            width: 100%;
-            font-size: 1rem;
-        }
-        form button {
-            background-color: #131313;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        form input, form textarea, form button {
-            margin: 10px 0;
-            padding: 5px;
-            width: 50%;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 0%;
-        }
-
-        form textarea {
-            resize: none;
-            height: 100px;
-        }
-
-        form button {
-            background-color: #383434;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        form button:hover {
-            background-color: #333;
-        }
-
-        /* Style the email button specifically */
-        .email-button {
-            font-size: 0.9rem;
-            text-decoration: none;
-            background: none;
-            color: #333;
-            border: none;
-            padding: 0;
-            margin: 10px 0;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .email-button:hover {
-            color: #ff6200;
-            text-decoration: underline;
-        }
-
-        .contact-info p {
-            font-size: 1rem;
-            color: #333;
-            margin: 8px 0;
-            font-family: 'Calibri', sans-serif;
-            text-align: center;
-        }
-
-        .contact-info {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('DSC00609.jpg') center/cover fixed no-repeat;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            color: #ddd;
+        }
+
+        /* Typing Effect Span */
+        .typed-text { color: var(--primary); font-weight: 700; }
+
+        .btn {
+            padding: 15px 40px;
+            border: 2px solid var(--primary);
+            color: var(--light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: color 0.4s;
+        }
+        
+        .btn::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 100%;
+            background: var(--primary); z-index: -1; transition: width 0.4s;
+        }
+        .btn:hover::before { width: 100%; }
+
+        /* --- SECTIONS & CARDS --- */
+        section {
+            min-height: 90vh;
+            display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
+            position: relative;
+            padding: 80px 20px;
+            box-sizing: border-box;
         }
 
-        .contact-info a.info-link {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: white;
-            color: #000;
-            font-weight: 500;
-            text-decoration: none;
-            border: 2px solid #000;
-            font-family: 'Calibri', sans-serif;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            margin: 10px 0;
-        }
+        /* Parallax Backgrounds */
+        .bg-fixed { background-attachment: fixed; background-size: cover; background-position: center; }
+        #about { background-image: url('DSC07183.jpg'); }
+        #data-analytics { background-image: url('pexels-shotbyrain-3934623.jpg'); }
+        #photography { background-image: url('IMG_8429-01.jpg'); }
+        #blogs { background-image: url('DSC07213.jpg'); }
 
-        .contact-info a.info-link:hover {
-            background-color: #000;
-            color: white;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 600px;
-            margin-top: 20px;
-        }
-
-        form input, form textarea, form button {
+        .glass-card {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 60px 40px;
+            max-width: 800px;
             width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            font-size: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(8px);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            
+            /* Scroll Animation Initial State */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
         }
 
-        form button {
-            background-color: #000;
-            color: white;
+        /* Class added by JS for animation */
+        .glass-card.visible { opacity: 1; transform: translateY(0); }
+
+        .glass-card h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--light); }
+        .glass-card p { font-size: 1.1rem; margin-bottom: 30px; line-height: 1.8; color: #ccc; }
+
+        /* --- CONTACT SECTION --- */
+        #contact { background-color: #fff; color: var(--dark); min-height: auto; padding: 100px 20px; }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .contact-info, .contact-form { flex: 1; min-width: 300px; }
+
+        .contact-info h2 { font-size: 3rem; margin-bottom: 20px; color: var(--dark); }
+        .contact-item { display: flex; align-items: center; margin-bottom: 20px; font-size: 1.1rem; }
+        .contact-item i { font-size: 1.5rem; color: var(--primary); margin-right: 15px; }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #f4f4f4;
             border: none;
-            cursor: pointer;
+            border-bottom: 2px solid #ddd;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box; /* Important for padding */
         }
 
-        form button:hover {
-            background-color: #ff6200;
-            color: white;
+        form input:focus, form textarea:focus { border-bottom-color: var(--primary); background: #eee; }
+        form button {
+            background: var(--dark); color: white; padding: 15px 40px;
+            border: none; font-weight: bold; cursor: pointer; text-transform: uppercase;
+        }
+        form button:hover { background: var(--primary); }
+
+        /* --- FOOTER --- */
+        footer { background: #000; padding: 30px; text-align: center; color: #666; font-size: 0.9rem; }
+
+        /* =========================================
+           📱 MOBILE RESPONSIVENESS (MEDIA QUERIES)
+           ========================================= */
+        @media (max-width: 768px) {
+            
+            /* 1. Header Adjustments */
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.1rem; }
+
+            /* 2. Navigation (Hamburger Menu) */
+            .menu-toggle { display: block; }
+            
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                background: #000;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 60px;
+                transform: translateX(100%); /* Hide off screen */
+                transition: transform 0.4s ease-in-out;
+                border-left: 1px solid #333;
+            }
+
+            /* Show menu when active */
+            .nav-links.active { transform: translateX(0); }
+            
+            .nav-links a { font-size: 1.2rem; margin-bottom: 30px; }
+
+            /* 3. Section Adjustments */
+            .glass-card { padding: 40px 20px; width: 90%; }
+            .glass-card h2 { font-size: 1.8rem; }
+            
+            /* 4. Contact Stack */
+            .contact-container { flex-direction: column; }
+            #contact h2 { font-size: 2rem; }
+            
+            /* 5. Disable fixed background on mobile for performance */
+            .bg-fixed { background-attachment: scroll; }
         }
 
-        .photography a {
-            text-decoration: none;  /* Removes the underline */
-            color: inherit;         /* Makes the link color the same as the surrounding text */
-            font-weight: normal;    /* Removes bold text styling */
-            cursor: pointer;       /* Makes the cursor appear as a pointer when hovering */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
- 
-        .photography a:hover {
-            text-decoration: underline;  /* Optionally, you can underline the link on hover to show it's clickable */
-        }
-
     </style>
 </head>
 <body>
+
     <nav>
-        <div>Ayush Gunjal</div>
-        <div>
-            <a href="#about">About</a>
-            <a href="Data_analytics.html">Data Analytics</a>
-            <a href="gallery.html">Photography</a>
-            <a href="Blog.html">Blogs</a>
-            <a href="#contact">Contact</a>
+        <div class="logo">AYUSH<span>.</span></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
         </div>
+        <ul class="nav-links">
+            <li><a href="#about" onclick="closeMenu()">About</a></li>
+            <li><a href="Data_analytics.html" onclick="closeMenu()">Data</a></li>
+            <li><a href="gallery.html" onclick="closeMenu()">Photography</a></li>
+            <li><a href="Blog.html" onclick="closeMenu()">Blogs</a></li>
+            <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
     </nav>
 
     <header>
-        <div>
+        <div class="hero-content">
             <h1>Ayush Gunjal</h1>
-            <p>Explore my work in Data Analytics, Photography, and more</p>
-            <a href="#about">About Me</a>
+            <p>I am a <span class="typed-text"></span></p>
+            <a href="#about" class="btn">View My Work</a>
         </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a Data Analyst and Photographer passionate about solving real-world problems using data and creativity.</p>
+    <section id="about" class="bg-fixed">
+        <div class="glass-card">
+            <h2>About Me</h2>
+            <p>I blend the analytical world of Data Science with the creative vision of Photography. My goal is to tell stories—whether through datasets or camera lenses. Based in Mumbai, creating globally.</p>
+        </div>
     </section>
 
-    <section id="data-analytics">
-        <h2><a href="Data_analytics.html">Data Analytics</a></h2>
-        <p>Data is my passion! I love analyzing and visualizing data to uncover insights and tell stories.</p>
+    <section id="data-analytics" class="bg-fixed">
+        <div class="glass-card">
+            <h2>Data Analytics</h2>
+            <p>Transforming raw data into actionable insights. I specialize in Python, SQL, and Tableau visualization.</p>
+            <a href="Data_analytics.html" class="btn">See Dashboards</a>
+        </div>
     </section>
 
-    <section id="photography">
-        <h2><a href="gallery.html">Photography</a></h2>
-        <p>Photography allows me to capture the world in unique ways. I specialize in creative and cinematic photography.</p>
+    <section id="photography" class="bg-fixed">
+        <div class="glass-card">
+            <h2>Photography</h2>
+            <p>Capturing moments that speak louder than words. Explore my gallery of cinematic street and nature shots.</p>
+            <a href="gallery.html" class="btn">View Gallery</a>
+        </div>
     </section>
 
-    <section id="blogs">
-        <h2><a href="Blog.html">Blogs</a></h2>
-        <p>Check out my thoughts and experiences on various topics through my blog.</p>
+    <section id="blogs" class="bg-fixed">
+        <div class="glass-card">
+            <h2>My Blogs</h2>
+            <p>Read about my experiences in tech, camera gear reviews, and data tutorials.</p>
+            <a href="Blog.html" class="btn">Read More</a>
+        </div>
     </section>
 
     <section id="contact">
-        <div class="contact-info">
-            <h2>Contact Me</h2>
-            <p>If you have any questions or want to work together, feel free to reach out!</p>
-            <a href="ayush@gmail.com" class="email-button">Email Me</a>
-            <p>Phone: 7447547494</p>
-            <a href="tel:+1234567890" class="info-link">Call Me</a>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Let's Connect</h2>
+                <div class="contact-item"><i class="fas fa-envelope"></i> ayush@gmail.com</div>
+                <div class="contact-item"><i class="fas fa-phone"></i> +91 7447547494</div>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Mumbai, India</div>
+            </div>
+            
+            <div class="contact-form">
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <textarea name="message" rows="5" placeholder="Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
         </div>
-        
-        <form action="#">
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
     </section>
 
     <footer>
-        <p>&copy; 2025 Ayush Gunjal. All rights reserved.</p>
+        <p>&copy; 2025 Ayush Gunjal. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        function closeMenu() {
+            navLinks.classList.remove('active');
+        }
+
+        // 2. Typing Effect
+        const textElement = document.querySelector('.typed-text');
+        const texts = ["Data Analyst", "Photographer", "Creator"];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+
+        (function type() {
+            if (count === texts.length) { count = 0; }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+            
+            textElement.textContent = letter;
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000); // Wait before typing next word
+            } else {
+                setTimeout(type, 100); // Typing speed
+            }
+        })();
+
+        // 3. Scroll Animation (Fade In)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.glass-card');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
 </body>
 </html>
